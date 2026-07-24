@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -152,13 +151,15 @@ export function Hero() {
         >
           <div className="hero__character-burst" aria-hidden="true" />
           <div className="hero__character-frame">
-            <Image
+            {/* The local worker does not provide the image optimizer asset binding. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/images/hero/hero-character.png"
               alt="Comic-style illustration of Shivansh Vyas"
               width={1024}
               height={1536}
-              priority
-              sizes="(max-width: 899px) 84vw, 42vw"
+              decoding="async"
+              fetchPriority="high"
             />
           </div>
           <div className="hero__character-tag" aria-hidden="true">
