@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Bot,
   Code2,
-  Cpu,
   MessageSquareText,
   RadioTower,
 } from "lucide-react";
@@ -161,10 +160,6 @@ export function Hero() {
               decoding="async"
               fetchPriority="high"
             />
-          </div>
-          <div className="hero__character-tag" aria-hidden="true">
-            <Cpu size={15} />
-            SYSTEMS / ONLINE
           </div>
         </motion.div>
       </PageContainer>

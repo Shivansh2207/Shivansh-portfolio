@@ -44,11 +44,20 @@ export function Navbar() {
           aria-label="Shivansh Vyas — home"
           onClick={() => setIsOpen(false)}
         >
-          <span className="brand__mark" aria-hidden="true">
-            SV
+          <span className="brand__logo-wrap" aria-hidden="true">
+            {/* Static local asset avoids the unsupported Worker image optimizer. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="brand__logo"
+              src="/images/brand/shivansh-logo.png"
+              alt=""
+              width={1928}
+              height={816}
+              decoding="async"
+            />
           </span>
           <span className="brand__text">
-            <strong>SHIVANSH VYAS</strong>
+            <strong>VYAS <em>{"//"}</em></strong>
             <small>DEV PORTFOLIO</small>
           </span>
         </Link>

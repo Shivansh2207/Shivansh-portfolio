@@ -119,17 +119,22 @@ svg {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.7rem;
 }
 
-.brand__mark {
-  color: var(--red);
-  font-family: var(--font-comic), sans-serif;
-  font-size: 2rem;
-  letter-spacing: -0.08em;
-  line-height: 1;
-  text-shadow: 3px 2px 0 #37040d;
-  transform: skewX(-12deg) rotate(-5deg);
+.brand__logo-wrap {
+  display: block;
+  width: clamp(150px, 15vw, 218px);
+  height: 58px;
+  overflow: hidden;
+}
+
+.brand__logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .brand__text {
@@ -144,8 +149,15 @@ svg {
 }
 
 .brand__text strong {
-  display: none;
+  display: block;
+  color: var(--cyan);
   font-size: 0.72rem;
+}
+
+.brand__text strong em {
+  margin-left: 0.5rem;
+  color: var(--red);
+  font-style: normal;
 }
 
 .brand__text small {
@@ -466,23 +478,6 @@ svg {
     radial-gradient(circle, var(--red) 0 2px, transparent 2.5px) 0 0 / 12px 12px;
   opacity: 0.48;
   clip-path: polygon(2% 48%, 100% 4%, 75% 92%);
-}
-
-.hero__character-tag {
-  position: absolute;
-  z-index: 4;
-  right: 5%;
-  bottom: 7rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid rgba(0, 229, 255, 0.45);
-  background: rgba(5, 8, 20, 0.82);
-  color: var(--cyan);
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
 }
 
 .hero-background {
@@ -1787,11 +1782,6 @@ svg {
     margin: -1rem auto 0;
   }
 
-  .hero__character-tag {
-    right: 8%;
-    bottom: 4rem;
-  }
-
   .hero-background__web {
     opacity: 0.2;
   }
@@ -1926,10 +1916,6 @@ svg {
   .hero__character {
     width: min(88vw, 430px);
     margin-left: -2%;
-  }
-
-  .hero__character-tag {
-    display: none;
   }
 
   .hero-background__dots--blue,
