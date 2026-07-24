@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Anton, Bangers, IBM_Plex_Mono, Inter } from "next/font/google";
+import { Anton, IBM_Plex_Mono, Inter, Kaushan_Script, Quantico } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import "./globals.css";
@@ -11,9 +11,15 @@ const anton = Anton({
   subsets: ["latin"],
 });
 
-const bangers = Bangers({
-  variable: "--font-comic",
+const kaushanScript = Kaushan_Script({
+  variable: "--font-hero-comic",
   weight: "400",
+  subsets: ["latin"],
+});
+
+const quantico = Quantico({
+  variable: "--font-hero-heading",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -76,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${anton.variable} ${bangers.variable} ${inter.variable} ${mono.variable}`}
+        className={`${anton.variable} ${kaushanScript.variable} ${quantico.variable} ${inter.variable} ${mono.variable}`}
       >
         <Navbar />
         {children}

@@ -30,7 +30,6 @@ html {
 
 body {
   --font-display: "Anton", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif !important;
-  --font-comic: "Bangers", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif !important;
   --font-body: "Inter", Arial, Helvetica, sans-serif !important;
   --font-mono: "IBM Plex Mono", "Cascadia Code", Consolas, monospace !important;
   margin: 0;
@@ -278,9 +277,11 @@ svg {
 
 .comic-label {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 140px;
-  padding: 0.48rem 1rem 0.38rem;
+  padding: 11px 24px 13px;
   border: 3px solid #090909;
   background:
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1.5px) 0 0 / 7px 7px,
@@ -289,10 +290,11 @@ svg {
     5px 6px 0 #020309,
     inset 0 0 0 2px rgba(255, 255, 255, 0.15);
   color: #090b10;
-  font-family: var(--font-comic), sans-serif;
-  font-size: clamp(1.65rem, 2vw, 2.3rem);
+  font-family: var(--font-hero-comic), cursive;
+  font-size: clamp(1.7rem, 2vw, 2.35rem);
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   line-height: 1;
   text-align: center;
   transform: rotate(-1.8deg);
@@ -311,14 +313,17 @@ svg {
 .hero__title {
   display: grid;
   margin: 0;
-  font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(4.6rem, 6.4vw, 7.35rem);
-  font-weight: 400;
-  letter-spacing: -0.018em;
-  line-height: 0.87;
+  font-family: var(--font-hero-heading), sans-serif;
+  font-size: clamp(4.5rem, 6.2vw, 7.25rem);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
   text-transform: uppercase;
   text-wrap: nowrap;
-  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.58);
+  text-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.9),
+    4px 4px 0 rgba(0, 0, 0, 0.35);
 }
 
 .hero__title span {
@@ -405,10 +410,11 @@ svg {
     var(--yellow);
   box-shadow: 8px 8px 0 #090b10;
   color: #080b11;
-  font-family: var(--font-comic), sans-serif;
-  font-size: clamp(1.6875rem, 2vw, 1.875rem);
+  font-family: var(--font-hero-comic), cursive;
+  font-size: clamp(1.55rem, 1.8vw, 1.95rem);
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
 }
 
 .hero-cta--secondary {
@@ -1883,11 +1889,11 @@ svg {
     padding: 0.42rem 0.62rem 0.32rem;
     border-width: 2px;
     box-shadow: 4px 4px 0 #020309;
-    font-size: clamp(1.05rem, 5.1vw, 1.35rem);
+    font-size: clamp(1.25rem, 6vw, 1.7rem);
   }
 
   .hero__title {
-    font-size: clamp(3.35rem, 15vw, 5.1rem);
+    font-size: clamp(3.15rem, 15vw, 4.6rem);
     line-height: 0.9;
   }
 
