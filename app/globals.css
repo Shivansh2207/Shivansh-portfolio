@@ -178,8 +178,8 @@ svg {
   place-items: center;
   color: #e8eaf0;
   font-family: var(--font-mono), monospace;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.8125rem;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: color 160ms ease;
@@ -286,11 +286,12 @@ svg {
     radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1.5px) 0 0 / 7px 7px,
     var(--yellow);
   box-shadow:
-    7px 7px 0 #020309,
+    5px 6px 0 #020309,
     inset 0 0 0 2px rgba(255, 255, 255, 0.15);
   color: #090b10;
   font-family: var(--font-comic), sans-serif;
-  font-size: clamp(1.45rem, 2vw, 2rem);
+  font-size: clamp(1.65rem, 2vw, 2.3rem);
+  font-weight: 400;
   letter-spacing: 0.03em;
   line-height: 1;
   text-align: center;
@@ -311,13 +312,13 @@ svg {
   display: grid;
   margin: 0;
   font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(4.25rem, 6.15vw, 6.5rem);
+  font-size: clamp(4.6rem, 6.4vw, 7.35rem);
   font-weight: 400;
-  letter-spacing: 0.006em;
-  line-height: 0.88;
+  letter-spacing: -0.018em;
+  line-height: 0.87;
   text-transform: uppercase;
   text-wrap: nowrap;
-  text-shadow: 6px 7px 0 rgba(0, 0, 0, 0.6);
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.58);
 }
 
 .hero__title span {
@@ -329,11 +330,11 @@ svg {
 }
 
 .hero__intro {
-  max-width: 630px;
+  max-width: 660px;
   margin: 1.35rem 0 0;
-  color: #c6cbd5;
+  color: #e8ebf0;
   font-family: var(--font-mono), monospace;
-  font-size: clamp(0.83rem, 1.05vw, 0.98rem);
+  font-size: clamp(0.9rem, 1vw, 1.08rem);
   line-height: 1.65;
 }
 
@@ -353,8 +354,8 @@ svg {
   border: 1px solid currentColor;
   background: rgba(5, 8, 20, 0.7);
   font-family: var(--font-mono), monospace;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 700;
   letter-spacing: 0.06em;
   white-space: nowrap;
 }
@@ -387,7 +388,7 @@ svg {
   padding: 0.8rem 1.6rem;
   font-family: var(--font-mono), monospace;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition:
@@ -405,7 +406,8 @@ svg {
   box-shadow: 8px 8px 0 #090b10;
   color: #080b11;
   font-family: var(--font-comic), sans-serif;
-  font-size: 1.45rem;
+  font-size: clamp(1.6875rem, 2vw, 1.875rem);
+  font-weight: 400;
   letter-spacing: 0.03em;
 }
 
@@ -1728,8 +1730,9 @@ svg {
     align-items: center;
     gap: 1.5rem;
     border-bottom: 1px solid var(--border);
-    font-family: var(--font-display), sans-serif;
-    font-size: 1.7rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 1.05rem;
+    font-weight: 600;
     text-transform: uppercase;
   }
 
@@ -1889,8 +1892,8 @@ svg {
   }
 
   .hero__intro {
-    font-family: var(--font-body), sans-serif;
-    font-size: 0.93rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.9rem;
   }
 
   .hero__chips {
