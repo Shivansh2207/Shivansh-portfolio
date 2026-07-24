@@ -8,7 +8,7 @@ export function SelectedBuilds() {
     <section id="selected-builds" className="section">
       <PageContainer>
         <SectionHeading
-          eyebrow="01 / SELECTED BUILDS"
+          eyebrow="02 / SELECTED BUILDS"
           title="SYSTEMS WITH A JOB TO DO."
           description="A few practical products built across AI, operations, and connected technology."
         />
