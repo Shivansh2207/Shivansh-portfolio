@@ -50,7 +50,7 @@ export function IdentityScan() {
 
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
     if (progress >= 0.1) setActivated((current) => current || true);
-    if (progress >= 0.88) setHasCompleted((current) => current || true);
+    if (progress >= 0.94) setHasCompleted((current) => current || true);
   });
 
   const finalState = Boolean(reducedMotion || isCompact || hasCompleted);
@@ -70,17 +70,27 @@ export function IdentityScan() {
 
   const displayedMessage = finalState ? SYSTEM_MESSAGE : typedMessage;
 
-  const labelOpacity = useTransform(scrollYProgress, [0.02, 0.14], [0, 1]);
-  const bootOpacity = useTransform(scrollYProgress, [0.1, 0.22], [0, 1]);
-  const scanOpacity = useTransform(scrollYProgress, [0.22, 0.34, 0.44], [0, 1, 0]);
-  const scanX = useTransform(scrollYProgress, [0.22, 0.4], ["-105%", "105%"]);
-  const statementOpacity = useTransform(scrollYProgress, [0.37, 0.52], [0, 1]);
-  const statementY = useTransform(scrollYProgress, [0.37, 0.52], [28, 0]);
-  const bioOpacity = useTransform(scrollYProgress, [0.52, 0.7], [0, 1]);
-  const bioY = useTransform(scrollYProgress, [0.52, 0.7], [24, 0]);
-  const metadataOpacity = useTransform(scrollYProgress, [0.64, 0.8], [0, 1]);
-  const cardOpacity = useTransform(scrollYProgress, [0.7, 0.87], [0, 1]);
-  const cardY = useTransform(scrollYProgress, [0.7, 0.87], [24, 0]);
+  const labelOpacity = useTransform(scrollYProgress, [0.03, 0.18], [0, 1]);
+  const bootOpacity = useTransform(scrollYProgress, [0.12, 0.3], [0, 1]);
+  const scanOpacity = useTransform(scrollYProgress, [0.22, 0.38, 0.5], [0, 1, 0]);
+  const scanX = useTransform(scrollYProgress, [0.22, 0.47], ["-105%", "105%"]);
+  const statementLabelOpacity = useTransform(scrollYProgress, [0.3, 0.42], [0, 1]);
+  const lineOneOpacity = useTransform(scrollYProgress, [0.35, 0.5], [0, 1]);
+  const lineTwoOpacity = useTransform(scrollYProgress, [0.43, 0.58], [0, 1]);
+  const lineThreeOpacity = useTransform(scrollYProgress, [0.51, 0.66], [0, 1]);
+  const noteOpacity = useTransform(scrollYProgress, [0.58, 0.7], [0, 1]);
+  const lineOneY = useTransform(scrollYProgress, [0.35, 0.5], [22, 0]);
+  const lineTwoY = useTransform(scrollYProgress, [0.43, 0.58], [22, 0]);
+  const lineThreeY = useTransform(scrollYProgress, [0.51, 0.66], [22, 0]);
+  const bioOneOpacity = useTransform(scrollYProgress, [0.48, 0.65], [0, 1]);
+  const bioTwoOpacity = useTransform(scrollYProgress, [0.58, 0.75], [0, 1]);
+  const bioOneY = useTransform(scrollYProgress, [0.48, 0.65], [20, 0]);
+  const bioTwoY = useTransform(scrollYProgress, [0.58, 0.75], [20, 0]);
+  const metadataOpacity = useTransform(scrollYProgress, [0.64, 0.84], [0, 1]);
+  const cardOpacity = useTransform(scrollYProgress, [0.7, 0.88], [0, 1]);
+  const cardY = useTransform(scrollYProgress, [0.7, 0.88], [22, 0]);
+  const ctaOpacity = useTransform(scrollYProgress, [0.8, 0.94], [0, 1]);
+  const ctaY = useTransform(scrollYProgress, [0.8, 0.94], [18, 0]);
 
   const ready = <T,>(value: MotionValue<T>, fallback: T) =>
     finalState ? fallback : value;
@@ -111,15 +121,15 @@ export function IdentityScan() {
 
           <div className="identity-scan__layout">
             <div className="identity-scan__left">
-              <motion.div className="identity-scan__statement" style={{ opacity: ready(statementOpacity, 1), y: ready(statementY, 0) }}>
-                <p className="identity-scan__profile-label">PROFILE / SV-22</p>
+              <div className="identity-scan__statement">
+                <motion.p className="identity-scan__profile-label" style={{ opacity: ready(statementLabelOpacity, 1) }}>PROFILE / SV-22</motion.p>
                 <h2 id="identity-title">
-                  <span>CURIOUS MIND.</span>
-                  <span className="is-red">BUILDER ENERGY.</span>
-                  <span>SLIGHTLY TOO<br className="identity-scan__desktop-break" /> MANY IDEAS.</span>
+                  <motion.span style={{ opacity: ready(lineOneOpacity, 1), y: ready(lineOneY, 0) }}>CURIOUS MIND.</motion.span>
+                  <motion.span className="is-red" style={{ opacity: ready(lineTwoOpacity, 1), y: ready(lineTwoY, 0) }}>BUILDER ENERGY.</motion.span>
+                  <motion.span style={{ opacity: ready(lineThreeOpacity, 1), y: ready(lineThreeY, 0) }}>SLIGHTLY TOO<br className="identity-scan__desktop-break" /> MANY IDEAS.</motion.span>
                 </h2>
-                <span className="identity-scan__note">THAT&apos;S THE FUN PART.</span>
-              </motion.div>
+                <motion.span className="identity-scan__note" style={{ opacity: ready(noteOpacity, 1) }}>THAT&apos;S THE FUN PART.</motion.span>
+              </div>
 
               <motion.div className="identity-metadata" style={{ opacity: ready(metadataOpacity, 1) }}>
                 {metadata.map(({ icon: Icon, label, value }) => (
@@ -134,10 +144,10 @@ export function IdentityScan() {
             </div>
 
             <div className="identity-scan__right">
-              <motion.div className="identity-scan__bio" style={{ opacity: ready(bioOpacity, 1), y: ready(bioY, 0) }}>
-                <p>I&apos;m <em>Shivansh Vyas</em>, a computer engineering student and full-stack developer who enjoys turning ambitious ideas into practical, working products.</p>
-                <p>I build across software, AI, automation, business systems and connected hardware — usually learning by creating, breaking, debugging and improving.</p>
-              </motion.div>
+              <div className="identity-scan__bio">
+                <motion.p style={{ opacity: ready(bioOneOpacity, 1), y: ready(bioOneY, 0) }}>I&apos;m <em>Shivansh Vyas</em>, a computer engineering student and full-stack developer who enjoys turning ambitious ideas into practical, working products.</motion.p>
+                <motion.p style={{ opacity: ready(bioTwoOpacity, 1), y: ready(bioTwoY, 0) }}>I build across software, AI, automation, business systems and connected hardware — usually learning by creating, breaking, debugging and improving.</motion.p>
+              </div>
 
               <motion.article className="identity-card" style={{ opacity: ready(cardOpacity, 1), y: ready(cardY, 0) }}>
                 <div className="identity-card__portrait">
@@ -153,7 +163,7 @@ export function IdentityScan() {
                 </div>
               </motion.article>
 
-              <motion.div className="identity-scan__cta-wrap" style={{ opacity: ready(cardOpacity, 1), y: ready(cardY, 0) }}>
+              <motion.div className="identity-scan__cta-wrap" style={{ opacity: ready(ctaOpacity, 1), y: ready(ctaY, 0) }}>
                 <Link href="/about" className="identity-scan__cta">VIEW FULL STORY <ArrowRight size={18} aria-hidden="true" /></Link>
               </motion.div>
             </div>

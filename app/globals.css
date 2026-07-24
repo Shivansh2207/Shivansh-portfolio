@@ -2097,3 +2097,20 @@ svg {
 @media (max-width: 850px) { .identity-scan { height: auto; }.identity-scan__canvas { position: relative; top: auto; min-height: 0; overflow: hidden; display: block; }.identity-scan__inner { min-height: 0; padding-top: 6.5rem; padding-bottom: 5rem; }.identity-scan__topbar { grid-template-columns: 1fr auto; }.identity-scan__system { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; padding-bottom: .75rem; }.identity-scan__system::before,.identity-scan__system::after { width: min(22vw,120px); }.identity-scan__scanning,.identity-scan__scan-line { display: none; }.identity-scan__layout { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 3rem; }.identity-scan__right { justify-items: stretch; }.identity-scan__bio { max-width: 640px; }.identity-scan__statement h2 { font-size: clamp(2.6rem,11vw,4rem); }.identity-scan__desktop-break { display: none; }.identity-scan__note { margin-left: 1rem; }.identity-card { width: 100%; grid-template-columns: minmax(126px,32%) 1fr; min-height: 190px; height: auto; }.identity-scan__cta-wrap { width: 100%; }.identity-metadata__row { grid-template-columns: 30px minmax(110px,.9fr) minmax(0,1.2fr) 8px; padding-inline: .8rem; gap: .6rem; } }
 @media (max-width: 470px) { .identity-scan__inner { padding-top: 6rem; }.identity-scan__system { font-size: .65rem; letter-spacing: .04em; }.identity-scan__system::before,.identity-scan__system::after { display: none; }.identity-scan__statement h2 { letter-spacing: -.045em; }.identity-metadata__row { grid-template-columns: 27px 1fr 7px; min-height: 71px; }.identity-metadata__row strong { grid-column: 2; grid-row: 2; font-size: .7rem; }.identity-metadata__row i { grid-column: 3; grid-row: 1 / span 2; }.identity-card { grid-template-columns: 112px 1fr; min-height: 174px; }.identity-card__details { padding: 1rem; }.identity-card__details small { font-size: .48rem; } }
 @media (prefers-reduced-motion: reduce) { .identity-scan { height: auto; }.identity-scan__canvas { position: relative; top: auto; min-height: 0; display: block; }.identity-scan__inner { min-height: 0; }.identity-scan__scan-line { display: none; }.identity-scan__system b { animation: none; } }
+
+@media (min-width: 851px) and (min-height: 821px) {
+  .identity-scan__layout { gap: clamp(3rem, 5.5vw, 6.75rem); }
+  .identity-scan__statement h2 { font-size: clamp(3rem, 4.65vw, 5.55rem); }
+  .identity-scan__note { margin-top: 1rem; font-size: clamp(1rem, 1.3vw, 1.3rem); }
+  .identity-metadata { margin-top: clamp(1.15rem, 2.5vh, 1.75rem); }
+  .identity-metadata__row { min-height: 52px; padding-block: 0.58rem; }
+  .identity-scan__bio { font-size: clamp(0.95rem, 1.08vw, 1.12rem); line-height: 1.65; }
+  .identity-scan__bio p + p { margin-top: 1.15rem; }
+  .identity-card { grid-template-columns: 170px minmax(230px, 1fr); width: min(100%, 565px); height: clamp(195px, 23vh, 220px); }
+  .identity-card__details { padding: 1.15rem 1.5rem; }
+  .identity-card__details p { font-size: clamp(0.9rem, 1.2vw, 1.1rem); }
+  .identity-card__details strong { font-size: clamp(1.45rem, 1.95vw, 1.95rem); }
+  .identity-card__details span { font-size: 0.76rem; }
+  .identity-scan__cta-wrap { width: min(100%, 340px); }
+  .identity-scan__cta { min-height: 54px; font-size: 0.82rem; }
+}
