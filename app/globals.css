@@ -298,8 +298,6 @@ svg {
   line-height: 1;
   text-align: center;
   -webkit-text-stroke: 0.35px currentColor;
-  clip-path: polygon(3% 0, 97% 0, 100% 12%, 100% 88%, 97% 100%, 3% 100%, 0 88%, 0 12%);
-  filter: drop-shadow(5px 6px 0 #020309);
   transform: rotate(-1.8deg);
 }
 
@@ -332,19 +330,10 @@ svg {
 
 .hero__title span {
   display: block;
-  background: linear-gradient(180deg, #f4f5f7 0%, #c9d0da 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter:
-    drop-shadow(2px 3px 0 rgba(0, 0, 0, 0.78))
-    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.16));
 }
 
 .hero__title .accent {
-  background: linear-gradient(180deg, #ff4d61 0%, #d51e38 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
+  color: var(--red);
 }
 
 .hero__intro {
@@ -376,8 +365,6 @@ svg {
   font-weight: 700;
   letter-spacing: 0.06em;
   white-space: nowrap;
-  clip-path: polygon(6% 0, 94% 0, 100% 22%, 100% 78%, 94% 100%, 6% 100%, 0 78%, 0 22%);
-  filter: drop-shadow(3px 4px 0 rgba(0, 0, 0, 0.5));
 }
 
 .skill-chip--blue {
@@ -415,7 +402,6 @@ svg {
     transform 160ms ease,
     box-shadow 160ms ease,
     background-color 160ms ease;
-  clip-path: polygon(3% 0, 97% 0, 100% 16%, 100% 84%, 97% 100%, 3% 100%, 0 84%, 0 16%);
 }
 
 .hero-cta--primary {
@@ -432,14 +418,12 @@ svg {
   font-weight: 700;
   letter-spacing: 0.01em;
   -webkit-text-stroke: 0.35px currentColor;
-  filter: drop-shadow(7px 8px 0 #090b10);
 }
 
 .hero-cta--secondary {
   min-width: 290px;
   border: 1px solid rgba(244, 245, 247, 0.75);
   background: rgba(6, 9, 19, 0.72);
-  filter: drop-shadow(3px 4px 0 rgba(0, 0, 0, 0.5));
 }
 
 .hero-cta:hover {
