@@ -493,6 +493,25 @@ svg {
   pointer-events: none;
 }
 
+.hero-background__image,
+.hero-background__wash {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-background__image {
+  background: url("/images/hero/hero-background.png") center / cover no-repeat;
+}
+
+.hero-background__wash {
+  background: linear-gradient(
+    90deg,
+    rgba(5, 8, 20, 0.22) 0%,
+    rgba(5, 8, 20, 0.08) 48%,
+    rgba(5, 8, 20, 0.28) 100%
+  );
+}
+
 .hero-background__glow {
   position: absolute;
   width: 42rem;
