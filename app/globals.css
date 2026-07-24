@@ -315,8 +315,9 @@ svg {
   margin: 0;
   font-family: var(--font-hero-heading), sans-serif;
   font-size: clamp(4.5rem, 6.2vw, 7.25rem);
-  font-style: normal;
+  font-style: italic;
   font-weight: 700;
+  font-synthesis: none;
   letter-spacing: -0.045em;
   line-height: 0.88;
   text-transform: uppercase;

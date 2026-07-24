@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Anton, IBM_Plex_Mono, Inter, Quantico, Story_Script } from "next/font/google";
+import localFont from "next/font/local";
+import { Anton, IBM_Plex_Mono, Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import "./globals.css";
@@ -11,16 +12,20 @@ const anton = Anton({
   subsets: ["latin"],
 });
 
-const storyScript = Story_Script({
+const storyScript = localFont({
+  src: "./fonts/StoryScript-Regular.ttf",
   variable: "--font-hero-comic",
   weight: "400",
-  subsets: ["latin"],
+  style: "normal",
+  display: "swap",
 });
 
-const quantico = Quantico({
+const quantico = localFont({
+  src: "./fonts/Quantico-BoldItalic.ttf",
   variable: "--font-hero-heading",
-  weight: ["400", "700"],
-  subsets: ["latin"],
+  weight: "700",
+  style: "italic",
+  display: "swap",
 });
 
 const inter = Inter({
