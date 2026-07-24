@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract comic-style developer silhouette</title>
+  <desc id="desc">An original streetwear-inspired character placeholder with red and blue rim lighting.</desc>
+  <defs>
+    <linearGradient id="jacket" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17233a"/>
+      <stop offset=".48" stop-color="#0a0f1c"/>
+      <stop offset="1" stop-color="#12192b"/>
+    </linearGradient>
+    <linearGradient id="hood" x1="0" y1="0" x2="1" y2=".8">
+      <stop stop-color="#ff314a"/>
+      <stop offset="1" stop-color="#8d1429"/>
+    </linearGradient>
+    <linearGradient id="skin" x1=".2" y1="0" x2=".8" y2="1">
+      <stop stop-color="#b66d53"/>
+      <stop offset="1" stop-color="#6f372f"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="10" dy="14" stdDeviation="4" flood-color="#02040b" flood-opacity=".8"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M236 900 186 692l52-257 91-74 76-14 113 47 76 141 23 365Z" fill="url(#jacket)" stroke="#050814" stroke-width="18"/>
+    <path d="M251 457c-8-78 16-136 86-165 75-31 156 12 190 97l-48 68-119-34Z" fill="url(#hood)" stroke="#080d19" stroke-width="15"/>
+    <path d="m305 335 24-110 57-72 91 29 28 92-42 82-90 22Z" fill="url(#skin)" stroke="#080d19" stroke-width="14"/>
+    <path d="M319 230c-21-59 16-142 102-160 78-17 137 32 140 104-37-18-61-55-112-43-30 8-56 38-91 29l-8 75Z" fill="#080b13" stroke="#2563ff" stroke-width="8"/>
+    <path d="M349 154c28-73 130-102 193-39-34-10-57-2-75 11 51-3 83 21 98 58-35-22-67-25-96-17" fill="none" stroke="#ff314a" stroke-width="9" stroke-linecap="square"/>
+    <path d="m405 378-56 66 52 171 63-183Z" fill="#252f41" stroke="#050814" stroke-width="13"/>
+    <path d="m352 415-69 38 38 386 85 61 8-273Z" fill="#111827" stroke="#2563ff" stroke-width="8"/>
+    <path d="m465 420 74 14 65 176-37 290H444l-18-280Z" fill="#101624" stroke="#ff314a" stroke-width="8"/>
+    <path d="m253 492-87 174 35 159 106-23 28-226Z" fill="#111827" stroke="#2563ff" stroke-width="8"/>
+    <path d="m552 494 87 184-7 149-104-15-37-216Z" fill="#101624" stroke="#ff314a" stroke-width="8"/>
+    <path d="M462 510h75v66h-75Z" fill="#07111d" stroke="#00e5ff" stroke-width="5"/>
+    <path d="m482 552 17-22m1 22 17-22" stroke="#f4f5f7" stroke-width="6"/>
+    <path d="m305 463 39-49 24 27-33 61m150-56 38 50-25 34-35-70" fill="none" stroke="#ff314a" stroke-width="14"/>
+    <path d="M382 446v425" stroke="#ff314a" stroke-width="11"/>
+    <path d="m400 488 12 18-12 18-12-18Z" fill="#ffd23f"/>
+    <path d="M226 768h104m204 16h98" stroke="#28354d" stroke-width="7"/>
+    <path d="m327 268 23 9m93 17 20-8" stroke="#0a0d15" stroke-width="9" stroke-linecap="round"/>
+    <path d="M363 324c31 23 57 24 84 4" fill="none" stroke="#43252a" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <path d="M219 432 160 544m414-181 75 110" stroke="#00e5ff" stroke-width="5" opacity=".7"/>
+  <path d="M182 467 122 580m469-171 66 114" stroke="#ff314a" stroke-width="5" opacity=".7"/>
+</svg>
