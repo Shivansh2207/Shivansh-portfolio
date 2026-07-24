@@ -153,12 +153,12 @@ export function Hero() {
           <div className="hero__character-burst" aria-hidden="true" />
           <div className="hero__character-frame">
             <Image
-              src="/images/hero/hero-character-placeholder.svg"
-              alt="Original abstract comic-style developer silhouette"
-              width={720}
-              height={900}
+              src="/images/hero/hero-character.png"
+              alt="Comic-style illustration of Shivansh Vyas"
+              width={1024}
+              height={1536}
               priority
-              sizes="(max-width: 899px) 76vw, 44vw"
+              sizes="(max-width: 899px) 84vw, 42vw"
             />
           </div>
           <div className="hero__character-tag" aria-hidden="true">

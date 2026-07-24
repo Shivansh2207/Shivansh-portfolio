@@ -414,9 +414,9 @@ svg {
 .hero__character {
   position: absolute;
   z-index: 2;
-  right: -2.5%;
-  bottom: -3.5rem;
-  width: min(50vw, 710px);
+  right: 3%;
+  bottom: -1rem;
+  width: min(42vw, 580px);
   height: 780px;
   display: grid;
   place-items: end center;
@@ -1676,8 +1676,8 @@ svg {
   }
 
   .hero__character {
-    right: -8%;
-    width: 54vw;
+    right: 1%;
+    width: min(45vw, 540px);
   }
 
   .nav-links {
@@ -1782,7 +1782,7 @@ svg {
     position: relative;
     right: auto;
     bottom: -2.5rem;
-    width: min(85vw, 560px);
+    width: min(84vw, 500px);
     height: auto;
     margin: -1rem auto 0;
   }
@@ -1924,7 +1924,7 @@ svg {
   }
 
   .hero__character {
-    width: min(105vw, 520px);
+    width: min(88vw, 430px);
     margin-left: -2%;
   }
 
