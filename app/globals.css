@@ -2057,7 +2057,7 @@ svg {
 }
 
 /* Identity scan */
-.identity-scan { position: relative; height: 185svh; background: #030611; }
+.identity-scan { position: relative; height: 155svh; background: #030611; }
 .identity-scan__canvas { position: sticky; top: 0; min-height: 100svh; overflow: hidden; display: flex; align-items: center; isolation: isolate; background: #030611; }
 .identity-scan__background { position: absolute; z-index: -2; inset: 0; background: linear-gradient(180deg, rgba(3, 6, 17, .35), rgba(3, 6, 17, .75)), url("/images/identity/identity-scan-background.png") center / cover no-repeat; }
 .identity-scan__background::before, .identity-scan__background::after { position: absolute; inset: 0; content: ""; }

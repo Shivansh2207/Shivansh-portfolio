@@ -33,6 +33,7 @@ export function IdentityScan() {
   const reducedMotion = useReducedMotion();
   const [isCompact, setIsCompact] = useState(false);
   const [activated, setActivated] = useState(false);
+  const [hasCompleted, setHasCompleted] = useState(false);
   const [typedMessage, setTypedMessage] = useState("");
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -49,9 +50,10 @@ export function IdentityScan() {
 
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
     if (progress >= 0.1) setActivated((current) => current || true);
+    if (progress >= 0.88) setHasCompleted((current) => current || true);
   });
 
-  const finalState = Boolean(reducedMotion || isCompact);
+  const finalState = Boolean(reducedMotion || isCompact || hasCompleted);
 
   useEffect(() => {
     if (!activated || finalState) return;
