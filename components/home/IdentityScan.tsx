@@ -1,174 +1,87 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
-import {
-  Crosshair,
-  MapPin,
-  Terminal,
-  Zap,
-  ArrowRight,
-} from "lucide-react";
-import {
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-} from "framer-motion";
+import { ArrowUpRight, MapPin, ScanLine, Braces, FlaskConical, Send, Search } from "lucide-react";
+import { motion, useReducedMotion, useScroll, useMotionValue, useMotionValueEvent, useTransform } from "framer-motion";
 import { PageContainer } from "@/components/layout/PageContainer";
+import "./identity-dossier.css";
 
-const SYSTEM_MESSAGE = "SYSTEM LINK ESTABLISHED";
-
-const metadata = [
-  { icon: MapPin, label: "BASED IN", value: "MUMBAI, INDIA" },
-  { icon: Terminal, label: "CURRENT MODE", value: "BUILDING & LEARNING" },
-  { icon: Crosshair, label: "FOCUS", value: "FULL-STACK + AUTOMATION" },
-  { icon: Zap, label: "APPROACH", value: "UNDERSTAND → BUILD → TEST → SHIP" },
+const approach = [
+  { title: "Understand", detail: "Find the real problem.", icon: Search },
+  { title: "Build", detail: "Connect the right pieces.", icon: Braces },
+  { title: "Test", detail: "Break it. Learn. Improve.", icon: FlaskConical },
+  { title: "Ship", detail: "Make it useful in the real world.", icon: Send },
 ];
 
 export function IdentityScan() {
-  const sectionRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
-  const [isCompact, setIsCompact] = useState(false);
-  const [activated, setActivated] = useState(false);
-  const [hasCompleted, setHasCompleted] = useState(false);
-  const [typedMessage, setTypedMessage] = useState("");
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
+  const sectionRef = useRef<HTMLElement>(null);
+  const progress = useMotionValue(0);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
+  useMotionValueEvent(scrollYProgress, "change", (value) => {
+    // Progress only moves forward: scrolling back never hides revealed content.
+    progress.set(Math.max(progress.get(), value));
   });
-
-  useEffect(() => {
-    const media = window.matchMedia("(max-width: 850px)");
-    const update = () => setIsCompact(media.matches);
-    update();
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
-  }, []);
-
-  useMotionValueEvent(scrollYProgress, "change", (progress) => {
-    if (progress >= 0.1) setActivated((current) => current || true);
-    if (progress >= 0.94) setHasCompleted((current) => current || true);
-  });
-
-  const finalState = Boolean(reducedMotion || isCompact || hasCompleted);
-
-  useEffect(() => {
-    if (!activated || finalState) return;
-
-    let index = 0;
-    const timer = window.setInterval(() => {
-      index += 1;
-      setTypedMessage(SYSTEM_MESSAGE.slice(0, index));
-      if (index >= SYSTEM_MESSAGE.length) window.clearInterval(timer);
-    }, 30);
-
-    return () => window.clearInterval(timer);
-  }, [activated, finalState]);
-
-  const displayedMessage = finalState ? SYSTEM_MESSAGE : typedMessage;
-
-  const labelOpacity = useTransform(scrollYProgress, [0.03, 0.18], [0, 1]);
-  const bootOpacity = useTransform(scrollYProgress, [0.12, 0.3], [0, 1]);
-  const scanOpacity = useTransform(scrollYProgress, [0.22, 0.38, 0.5], [0, 1, 0]);
-  const scanX = useTransform(scrollYProgress, [0.22, 0.47], ["-105%", "105%"]);
-  const statementLabelOpacity = useTransform(scrollYProgress, [0.3, 0.42], [0, 1]);
-  const lineOneOpacity = useTransform(scrollYProgress, [0.35, 0.5], [0, 1]);
-  const lineTwoOpacity = useTransform(scrollYProgress, [0.43, 0.58], [0, 1]);
-  const lineThreeOpacity = useTransform(scrollYProgress, [0.51, 0.66], [0, 1]);
-  const noteOpacity = useTransform(scrollYProgress, [0.58, 0.7], [0, 1]);
-  const lineOneY = useTransform(scrollYProgress, [0.35, 0.5], [22, 0]);
-  const lineTwoY = useTransform(scrollYProgress, [0.43, 0.58], [22, 0]);
-  const lineThreeY = useTransform(scrollYProgress, [0.51, 0.66], [22, 0]);
-  const bioOneOpacity = useTransform(scrollYProgress, [0.48, 0.65], [0, 1]);
-  const bioTwoOpacity = useTransform(scrollYProgress, [0.58, 0.75], [0, 1]);
-  const bioOneY = useTransform(scrollYProgress, [0.48, 0.65], [20, 0]);
-  const bioTwoY = useTransform(scrollYProgress, [0.58, 0.75], [20, 0]);
-  const metadataOpacity = useTransform(scrollYProgress, [0.64, 0.84], [0, 1]);
-  const cardOpacity = useTransform(scrollYProgress, [0.7, 0.88], [0, 1]);
-  const cardY = useTransform(scrollYProgress, [0.7, 0.88], [22, 0]);
-  const ctaOpacity = useTransform(scrollYProgress, [0.8, 0.94], [0, 1]);
-  const ctaY = useTransform(scrollYProgress, [0.8, 0.94], [18, 0]);
-
-  const ready = <T,>(value: MotionValue<T>, fallback: T) =>
-    finalState ? fallback : value;
+  const headerOpacity = useTransform(progress, [0.02, 0.16], [0, 1]);
+  const nameOpacity = useTransform(progress, [0.14, 0.36], [0, 1]);
+  const nameY = useTransform(progress, [0.14, 0.36], [42, 0]);
+  const storyOpacity = useTransform(progress, [0.32, 0.58], [0, 1]);
+  const storyY = useTransform(progress, [0.32, 0.58], [36, 0]);
+  const methodOpacity = useTransform(progress, [0.56, 0.8], [0, 1]);
+  const methodY = useTransform(progress, [0.56, 0.8], [28, 0]);
 
   return (
-    <section ref={sectionRef} className="identity-scan" aria-labelledby="identity-title">
-      <div className="identity-scan__canvas">
-        <div className="identity-scan__background" aria-hidden="true" />
-        <div className="identity-scan__scan-line" aria-hidden="true">
-          <motion.span style={{ opacity: ready(scanOpacity, 0), x: ready(scanX, "105%") }} />
+    <section
+      ref={sectionRef}
+      id="identity"
+      className="identity-dossier"
+      aria-labelledby="identity-title"
+    >
+      <div className="dossier-stage">
+      <PageContainer>
+        <motion.div className="dossier-header dossier-reveal" style={{ opacity: reducedMotion ? 1 : headerOpacity }}>
+          <span>01 / IDENTITY SCAN</span>
+          <span className="dossier-header__center"><ScanLine size={16} aria-hidden="true" /> THE PERSON BEHIND THE BUILD</span>
+          <span className="dossier-header__code">SV–22</span>
+        </motion.div>
+
+        <div className="dossier-layout">
+          <motion.div className="dossier-nameplate dossier-reveal" style={{ opacity: reducedMotion ? 1 : nameOpacity, y: reducedMotion ? 0 : nameY }}>
+            <div className="dossier-nameplate__index"><span>DEVELOPER / THINKER / TINKERER</span><span aria-hidden="true">[ 01 ]</span></div>
+            <h2 id="identity-title"><span>SHIVANSH</span><span className="dossier-nameplate__surname">VYAS<span className="dossier-nameplate__period">.</span></span></h2>
+            <div className="dossier-nameplate__signature" aria-hidden="true">Always a work in progress.</div>
+            <div className="dossier-nameplate__rule" aria-hidden="true" />
+            <p className="dossier-nameplate__belief">CURIOUS BY NATURE.<br /><strong>BUILDER BY CHOICE.</strong></p>
+            <div className="dossier-nameplate__location"><MapPin size={16} aria-hidden="true" /><span>MUMBAI, INDIA</span><span className="dossier-nameplate__coordinates">BUILDING & LEARNING</span></div>
+          </motion.div>
+
+          <motion.div className="dossier-story dossier-reveal" style={{ opacity: reducedMotion ? 1 : storyOpacity, y: reducedMotion ? 0 : storyY }}>
+            <p className="dossier-kicker"><span aria-hidden="true">/</span> A LITTLE CONTEXT</p>
+            <h3>I turn <span className="dossier-story__question">“what if”</span><br />into <span className="dossier-story__answer">“it works.”</span></h3>
+            <p>I’m a computer engineering student and full-stack developer. I like getting past the idea stage: understanding the problem, connecting the pieces, and making something people can actually use.</p>
+            <p>My work moves between software, AI, automation, and connected hardware. I learn by building, asking better questions, and figuring out why something broke.</p>
+            <div className="dossier-story__aside">
+              <span aria-hidden="true">*</span>
+              <p>Plenty of ideas.<br /><strong>Even more reasons to start.</strong></p>
+            </div>
+            <Link href="/about" className="dossier-story__link">VIEW FULL STORY <ArrowUpRight size={21} aria-hidden="true" /></Link>
+          </motion.div>
         </div>
 
-        <PageContainer className="identity-scan__inner">
-          <header className="identity-scan__topbar">
-            <motion.p className="identity-scan__eyebrow" style={{ opacity: ready(labelOpacity, 1) }}>
-              01 / IDENTITY SCAN
-            </motion.p>
-            <motion.p className="identity-scan__system" style={{ opacity: ready(bootOpacity, 1) }}>
-              <span aria-hidden="true">{displayedMessage}<b>▮</b></span>
-              <span className="sr-only">{SYSTEM_MESSAGE}</span>
-            </motion.p>
-            <motion.p className="identity-scan__id" style={{ opacity: ready(labelOpacity, 1) }}>SV-22</motion.p>
-          </header>
-
-          <motion.p className="identity-scan__scanning" style={{ opacity: ready(scanOpacity, 0) }}>
-            SCANNING PROFILE...
-          </motion.p>
-
-          <div className="identity-scan__layout">
-            <div className="identity-scan__left">
-              <div className="identity-scan__statement">
-                <motion.p className="identity-scan__profile-label" style={{ opacity: ready(statementLabelOpacity, 1) }}>PROFILE / SV-22</motion.p>
-                <h2 id="identity-title">
-                  <motion.span style={{ opacity: ready(lineOneOpacity, 1), y: ready(lineOneY, 0) }}>CURIOUS MIND.</motion.span>
-                  <motion.span className="is-red" style={{ opacity: ready(lineTwoOpacity, 1), y: ready(lineTwoY, 0) }}>BUILDER ENERGY.</motion.span>
-                  <motion.span style={{ opacity: ready(lineThreeOpacity, 1), y: ready(lineThreeY, 0) }}>SLIGHTLY TOO<br className="identity-scan__desktop-break" /> MANY IDEAS.</motion.span>
-                </h2>
-                <motion.span className="identity-scan__note" style={{ opacity: ready(noteOpacity, 1) }}>THAT&apos;S THE FUN PART.</motion.span>
-              </div>
-
-              <motion.div className="identity-metadata" style={{ opacity: ready(metadataOpacity, 1) }}>
-                {metadata.map(({ icon: Icon, label, value }) => (
-                  <div className="identity-metadata__row" key={label}>
-                    <Icon aria-hidden="true" size={22} />
-                    <span>{label}</span>
-                    <strong>{value}</strong>
-                    <i aria-hidden="true" />
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
-            <div className="identity-scan__right">
-              <div className="identity-scan__bio">
-                <motion.p style={{ opacity: ready(bioOneOpacity, 1), y: ready(bioOneY, 0) }}>I&apos;m <em>Shivansh Vyas</em>, a computer engineering student and full-stack developer who enjoys turning ambitious ideas into practical, working products.</motion.p>
-                <motion.p style={{ opacity: ready(bioTwoOpacity, 1), y: ready(bioTwoY, 0) }}>I build across software, AI, automation, business systems and connected hardware — usually learning by creating, breaking, debugging and improving.</motion.p>
-              </div>
-
-              <motion.article className="identity-card" style={{ opacity: ready(cardOpacity, 1), y: ready(cardY, 0) }}>
-                <div className="identity-card__portrait">
-                  {/* Local static asset avoids the Worker image optimizer. */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/hero/hero-character.png" alt="Illustrated portrait of Shivansh Vyas" width={1024} height={1536} />
-                </div>
-                <div className="identity-card__details">
-                  <p>SHIVANSH VYAS</p>
-                  <strong>SV-22</strong>
-                  <span>BUILDER / ACTIVE <i aria-hidden="true" /></span>
-                  <small>SYS. 87%　 CPU. 42%　 MEM. 63%</small>
-                </div>
-              </motion.article>
-
-              <motion.div className="identity-scan__cta-wrap" style={{ opacity: ready(ctaOpacity, 1), y: ready(ctaY, 0) }}>
-                <Link href="/about" className="identity-scan__cta">VIEW FULL STORY <ArrowRight size={18} aria-hidden="true" /></Link>
-              </motion.div>
-            </div>
-          </div>
-        </PageContainer>
+        <motion.div className="dossier-method dossier-reveal" style={{ opacity: reducedMotion ? 1 : methodOpacity, y: reducedMotion ? 0 : methodY }}>
+          <div className="dossier-method__heading"><span>HOW I THINK</span><span>FROM QUESTION TO SOMETHING THAT WORKS</span></div>
+          <ol className="dossier-method__steps">
+            {approach.map(({ title, detail, icon: Icon }, index) => (
+              <li key={title}>
+                <div className="dossier-method__step-top"><span>0{index + 1}</span><Icon size={21} strokeWidth={1.5} aria-hidden="true" /></div>
+                <h4>{title}<span aria-hidden="true">↗</span></h4>
+                <p>{detail}</p>
+              </li>
+            ))}
+          </ol>
+        </motion.div>
+      </PageContainer>
       </div>
     </section>
   );
