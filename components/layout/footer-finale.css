@@ -12,3 +12,12 @@
 .footer-finale a:focus-visible,.footer-finale button:focus-visible{outline:2px solid var(--yellow);outline-offset:5px}
 @media(max-width:760px){.footer-finale__top{align-items:start}.footer-finale__top p{font-size:.65rem}.footer-finale__top button{font-size:.65rem;padding:.6rem}.footer-finale__signature{font-size:10vw;padding-block:2rem}.footer-finale__signature .footer-finale__stamp{top:10%;font-size:.55rem}.footer-finale__bottom{flex-direction:column;align-items:start;gap:.6rem}}
 @media(prefers-reduced-motion:reduce){.footer-finale *{transition:none!important}}
+.footer-finale{position:relative;background:radial-gradient(ellipse at 12% 70%,#15234188,transparent 50%),#03050b;border-top:3px solid #131e30}
+.footer-finale__signature{font-family:var(--font-hero-block),sans-serif;font-style:normal;font-size:clamp(3rem,9.7vw,10rem);letter-spacing:-.065em;text-shadow:3px 4px #000}
+.footer-finale__signature .footer-finale__stamp{background:radial-gradient(#090b1044 .8px,transparent 1px) 0 0/4px 4px,var(--yellow);border:3px solid #090b10;box-shadow:4px 5px #000;top:4%;font:400 clamp(.8rem,1.4vw,1.3rem)/1.05 var(--font-hero-comic),cursive;letter-spacing:.04em;transition:rotate .25s}
+.footer-finale__signature:hover .footer-finale__stamp{rotate:-6deg}
+.footer-finale__afterword{display:flex;align-items:center;gap:1rem;padding:0 0 1.4rem;color:#718ba5;font:400 1.2rem var(--font-hero-comic),cursive;letter-spacing:.08em}
+.footer-finale__afterword i{height:1px;flex:1;background:repeating-linear-gradient(90deg,#3b536e 0 5px,transparent 5px 10px)}
+.footer-finale__afterword>span:first-child{color:var(--red)}.footer-finale__afterword b{color:var(--cyan);font-size:1.8rem}
+.footer-finale__top button:hover svg{transform:translateY(-3px)}.footer-finale__top button svg{transition:transform .2s}
+@media(max-width:760px){.footer-finale__signature{font-size:9.6vw}.footer-finale__afterword{font-size:.85rem;gap:.6rem}.footer-finale__signature .footer-finale__stamp{font-size:.65rem}}
