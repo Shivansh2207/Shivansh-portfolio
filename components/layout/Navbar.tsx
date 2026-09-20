@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { motion, useScroll } from "framer-motion";
 import { navigation } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 import { PageContainer } from "./PageContainer";
@@ -14,7 +13,6 @@ export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -88,8 +86,6 @@ export function Navbar() {
           {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
       </PageContainer>
-
-      <motion.div className="navbar__progress" style={{ scaleX: scrollYProgress }} aria-hidden="true" />
 
       <nav
         id="mobile-navigation"

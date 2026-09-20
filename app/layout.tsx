@@ -13,7 +13,7 @@ const anton = Anton({
 });
 
 const storyScript = localFont({
-  src: "./fonts/Bangers-Regular.ttf",
+  src: "./fonts/StoryScript-Regular.ttf",
   variable: "--font-hero-comic",
   weight: "400",
   style: "normal",
@@ -27,8 +27,6 @@ const quantico = localFont({
   style: "italic",
   display: "swap",
 });
-
-const heroBlock = localFont({ src: "./fonts/Quantico-Bold.ttf", variable: "--font-hero-block", weight: "700", style: "normal", display: "swap" });
 
 const inter = Inter({
   variable: "--font-body",
@@ -89,7 +87,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${anton.variable} ${storyScript.variable} ${quantico.variable} ${heroBlock.variable} ${inter.variable} ${mono.variable}`}
+        className={`${anton.variable} ${storyScript.variable} ${quantico.variable} ${inter.variable} ${mono.variable}`}
       >
         <Navbar />
         {children}
