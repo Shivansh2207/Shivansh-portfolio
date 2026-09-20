@@ -18,7 +18,7 @@ export function IdentityScan() {
   const reducedMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const progress = useMotionValue(0);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start 90%", "start 15%"] });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start 82px", "end end"] });
   useMotionValueEvent(scrollYProgress, "change", (value) => {
     // Progress only moves forward: scrolling back never hides revealed content.
     progress.set(Math.max(progress.get(), value));
@@ -37,6 +37,7 @@ export function IdentityScan() {
       id="identity"
       className="identity-dossier"
       aria-labelledby="identity-title"
+      onFocusCapture={() => progress.set(1)}
     >
       <div className="dossier-stage">
       <PageContainer>

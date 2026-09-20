@@ -156,3 +156,12 @@
   .dossier-reveal { opacity: 1 !important; transform: none !important; }
   .identity-dossier * { transition: none !important; }
 }
+
+/* A short scroll runway reveals the screen-sized composition only after arrival. */
+@media (max-width: 999px) {
+  .dossier-reveal { opacity: 1 !important; transform: none !important; }
+}
+@media (min-width: 1000px) and (min-height: 701px) and (prefers-reduced-motion: no-preference) {
+  .identity-dossier { height: calc(150svh - 82px); }
+  .dossier-stage { position: sticky; top: 82px; }
+}

@@ -1,0 +1,13 @@
+.chapter-break { position: relative; z-index: 6; display: flex; align-items: center; gap: 1.5rem; height: 100px; padding-inline: clamp(1.25rem, 4vw, 4.5rem); background: #02040a; border-block: 1px solid #253345; overflow: hidden; }
+.chapter-break::before { content: ""; position: absolute; inset: 14px 0; border-block: 1px solid #142333; pointer-events: none; }
+.chapter-break__from, .chapter-break__to { position: relative; flex-shrink: 0; color: #a1afc2; font: 500 .75rem var(--font-mono), monospace; letter-spacing: .08em; }
+.chapter-break__to { color: var(--cyan); }
+.chapter-break__to b { margin-left: 1rem; color: var(--red); font-size: 1.3rem; }
+.chapter-break__window { flex: 1; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.chapter-break__track { display: flex; width: max-content; animation: chapter-drift 35s linear infinite; }
+.chapter-break__track > span { display: flex; align-items: center; gap: 3rem; padding-right: 3rem; color: #e4c24b; font: italic 700 1.35rem var(--font-hero-heading), sans-serif; letter-spacing: .02em; }
+.chapter-break__track b { color: var(--red); font-size: 1.7rem; }
+.chapter-break:hover .chapter-break__track { animation-play-state: paused; }
+@keyframes chapter-drift { to { transform: translateX(-50%); } }
+@media (max-width: 760px) { .chapter-break { height: 80px; gap: 1rem; } .chapter-break__from { display: none; } .chapter-break__track > span { font-size: 1.1rem; gap: 1.5rem; padding-right: 1.5rem; } }
+@media (prefers-reduced-motion: reduce) { .chapter-break__track { animation: none; } }
