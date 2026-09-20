@@ -18,7 +18,7 @@ export function IdentityScan() {
   const reducedMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const progress = useMotionValue(0);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start 90%", "start 15%"] });
   useMotionValueEvent(scrollYProgress, "change", (value) => {
     // Progress only moves forward: scrolling back never hides revealed content.
     progress.set(Math.max(progress.get(), value));

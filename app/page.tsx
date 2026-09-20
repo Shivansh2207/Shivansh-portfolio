@@ -5,6 +5,7 @@ import { ExperiencePreview } from "@/components/home/ExperiencePreview";
 import { Hero } from "@/components/home/Hero";
 import { IdentityScan } from "@/components/home/IdentityScan";
 import { PlaygroundPreview } from "@/components/home/PlaygroundPreview";
+import "@/components/home/viewport-sections.css";
 
 export default function Home() {
   return (

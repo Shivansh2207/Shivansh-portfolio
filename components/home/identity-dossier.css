@@ -1,14 +1,14 @@
 .identity-dossier {
   position: relative;
   isolation: isolate;
-  height: 170svh;
+  height: auto;
   scroll-margin-top: 82px;
   background: #030814;
   border-top: 1px solid #172539;
 }
 .dossier-stage {
-  position: sticky;
-  top: 82px;
+  position: relative;
+  top: auto;
   min-height: calc(100svh - 82px);
   display: flex;
   align-items: center;

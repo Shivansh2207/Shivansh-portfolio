@@ -28,7 +28,7 @@ export function ExperiencePreview() {
             <h2 id="work-record-company">ZOOTECH<span>X</span></h2>
             <p className="work-record__role">Full-Stack Developer Intern</p>
             <ul className="work-record__details">
-              <li><CalendarDays size={21} aria-hidden="true" /><span><time dateTime="2025-12">DEC 2025</time> — <time dateTime="2026-05">MAY 2026</time></span></li>
+              <li><CalendarDays size={21} aria-hidden="true" /><span><time dateTime="2025-12">DEC 2025</time> — <time dateTime="2026-07">JUL 2026</time></span></li>
               <li><MapPin size={21} aria-hidden="true" /><span>HYBRID</span></li>
               <li><Building2 size={21} aria-hidden="true" /><span>INDUSTRIAL TRAINING</span></li>
             </ul>
