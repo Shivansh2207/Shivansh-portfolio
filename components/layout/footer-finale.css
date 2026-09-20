@@ -1,0 +1,14 @@
+.footer-finale{background:#03050b;padding:2rem 0 1.5rem;overflow:hidden}
+.footer-finale__top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.footer-finale__top p{margin:0;color:#cad5e2;font:500 .8rem/1.7 var(--font-mono),monospace}.footer-finale__top p span{color:#7e95ad}
+.footer-finale__top button{display:flex;gap:1rem;align-items:center;min-height:44px;padding:.7rem 1rem;border:1px solid #34516b;background:transparent;color:var(--cyan);font:500 .75rem var(--font-mono),monospace;cursor:pointer}
+.footer-finale__top button:hover{background:#10273a}
+.footer-finale__signature{position:relative;display:block;width:fit-content;padding-block:1.5rem;color:#f0f4f8;font:italic 700 clamp(3.3rem,10.4vw,11rem)/1 var(--font-hero-heading),sans-serif;letter-spacing:-.065em;white-space:nowrap}
+.footer-finale__signature>span:first-child{margin-left:.2em;color:transparent;-webkit-text-stroke:1px #6b8097;transition:color .2s}
+.footer-finale__signature:hover>span:first-child{color:var(--red);-webkit-text-stroke:1px var(--red)}
+.footer-finale__signature .footer-finale__stamp{position:absolute;right:1%;top:8%;background:var(--red);color:#03050b;padding:.5rem .8rem;rotate:9deg;font:700 clamp(.6rem,1vw,.9rem)/1.2 var(--font-mono),monospace;letter-spacing:0;box-shadow:3px 3px #000}
+.footer-finale__bottom{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-top:1px solid #263b4e;padding-top:1.3rem;color:#90a4bb;font:500 .7rem/1.5 var(--font-mono),monospace}
+.footer-finale__bottom nav{display:flex;gap:1.4rem;flex-wrap:wrap}.footer-finale__bottom a{display:inline-flex;align-items:center;gap:.3rem;min-height:32px;color:#d3dde8}.footer-finale__bottom a:hover{color:var(--cyan)}
+.footer-finale a:focus-visible,.footer-finale button:focus-visible{outline:2px solid var(--yellow);outline-offset:5px}
+@media(max-width:760px){.footer-finale__top{align-items:start}.footer-finale__top p{font-size:.65rem}.footer-finale__top button{font-size:.65rem;padding:.6rem}.footer-finale__signature{font-size:10vw;padding-block:2rem}.footer-finale__signature .footer-finale__stamp{top:10%;font-size:.55rem}.footer-finale__bottom{flex-direction:column;align-items:start;gap:.6rem}}
+@media(prefers-reduced-motion:reduce){.footer-finale *{transition:none!important}}

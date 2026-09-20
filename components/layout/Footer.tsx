@@ -1,43 +1,17 @@
+"use client";
+
 import Link from "next/link";
-import {
-  CodeProfileIcon,
-  NetworkProfileIcon,
-} from "@/components/ui/Icons";
-import { socialLinks } from "@/data/navigation";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { PageContainer } from "./PageContainer";
+import "./footer-finale.css";
 
 export function Footer() {
   return (
-    <footer className="site-footer">
-      <PageContainer className="site-footer__inner">
-        <div>
-          <strong>SHIVANSH VYAS</strong>
-          <p>Full-Stack Developer</p>
-        </div>
-        <div className="site-footer__links">
-          <Link
-            href={socialLinks.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub profile placeholder"
-          >
-            <CodeProfileIcon aria-hidden="true" size={18} />
-            GitHub
-          </Link>
-          <Link
-            href={socialLinks.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn profile placeholder"
-          >
-            <NetworkProfileIcon aria-hidden="true" size={18} />
-            LinkedIn
-          </Link>
-          <Link href="/contact">Contact</Link>
-        </div>
-        <p className="site-footer__copyright">
-          © {new Date().getFullYear()} Built with intent.
-        </p>
+    <footer className="footer-finale">
+      <PageContainer>
+        <div className="footer-finale__top"><p>BUILT WITH CURIOSITY.<br /><span>AND A FEW TOO MANY IDEAS.</span></p><button type="button" onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" })}>BACK TO THE TOP <ArrowUp size={20} aria-hidden="true" /></button></div>
+        <Link href="/" className="footer-finale__signature" aria-label="Shivansh Vyas — home">SHIVANSH<span>VYAS.</span><span className="footer-finale__stamp" aria-hidden="true">STILL<br />BUILDING ↗</span></Link>
+        <div className="footer-finale__bottom"><span>© {new Date().getFullYear()} SHIVANSH VYAS</span><nav aria-label="Footer navigation"><Link href="/projects">PROJECTS</Link><Link href="/about">MY STORY</Link><a href="https://github.com/Shivansh2207" target="_blank" rel="noreferrer">GITHUB <ArrowUpRight size={14} aria-hidden="true" /></a><Link href="/contact">SAY HELLO <ArrowUpRight size={14} aria-hidden="true" /></Link></nav><span>MUMBAI, INDIA / BUILT WITH INTENT</span></div>
       </PageContainer>
     </footer>
   );

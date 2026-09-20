@@ -56,3 +56,22 @@
 @media(max-width:1100px) { .route-explorer { gap:1.5rem; grid-template-columns:1fr 1fr; } .route-stop--2 { left:25%; } .route-stop--4 { left:31%; } .route-stop__text strong { font-size:1.2rem; } .route-story { padding-left:1.3rem; } .route-story__body { min-height:450px; } }
 @media(max-width:760px) { .route-journey { scroll-margin-top:72px; } .route-eyebrow>span:last-child { display:none; } .route-heading { display:block; padding-block:1.5rem; } .route-heading>p { margin-top:1.5rem; } .route-heading>p br { display:none; } .route-explorer { grid-template-columns:1fr; gap:1rem; } .route-map { height:auto; padding:2.5rem 0 1rem; } .route-map__line,.route-map__scribble { display:none; } .route-map__stops { display:grid; gap:1.3rem; border-left:2px dashed #35566c; margin-left:1.2rem; } .route-stop { position:relative; inset:auto; max-width:none; margin-left:-1.3rem; width:fit-content; } .route-stop:nth-child(even) { margin-left:.5rem; } .route-stop__text strong { font-size:1.2rem; } .route-story { padding:1.5rem 0 0; border-left:0; border-top:1px solid #35566c; } .route-story__body { min-height:450px; } .route-story h3 { font-size:1.8rem; } .route-footer { flex-direction:column; align-items:stretch; margin-top:1.5rem; } .route-footer a { justify-content:space-between; } }
 @media(prefers-reduced-motion:reduce) { .route-journey * { transition:none!important; } }
+/* Keep the complete desktop route visible beneath the fixed navigation. */
+@media(min-width:1101px){
+ .route-journey{padding-block:clamp(1rem,2.2svh,2rem);min-height:calc(100svh - 82px)}
+ .route-eyebrow{padding-bottom:.6rem}
+ .route-heading{padding:1rem 0 .5rem}
+ .route-heading h2{font-size:clamp(2rem,min(4vw,6svh),4rem)}
+ .route-heading>p{font-size:.875rem}.route-sticker{font-size:1.2rem;margin-top:.5rem}
+ .route-map{height:clamp(375px,49svh,530px)}
+ .route-stop--1{top:9%}.route-stop--2{top:32%}.route-stop--3{top:61%}.route-stop--4{top:80%}
+ .route-stop__pin{width:44px;height:44px}.route-stop__text{gap:.25rem}.route-stop__text strong{font-size:clamp(1.1rem,1.55vw,1.5rem)}
+ .route-map__scribble{top:50%;font-size:1.2rem}
+ .route-story{padding:.7rem 0 .6rem 1.5rem}.route-story__body{padding-top:1rem;min-height:320px}
+ .route-story h3{font-size:clamp(1.5rem,2.1vw,2.3rem);margin-bottom:.85rem}
+ .route-story__body>p:not(.route-story__lesson){line-height:1.5;margin-bottom:.7rem}
+ .route-story__skills{margin:.75rem 0;font-size:.8rem;gap:.35rem 1rem}
+ .route-story__lesson{margin:.8rem 0;font-size:1.2rem}.route-controls{padding-top:.6rem}
+ .route-footer{padding-top:.8rem;gap:1rem}.route-footer p{display:block;font-size:.875rem}.route-footer p>span{display:block;margin-bottom:.3rem}.route-footer p>strong{margin-left:.3rem}
+ .route-footer a{min-height:44px;padding:.6rem 1rem;font-size:.8rem}
+}
