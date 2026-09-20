@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { navigation } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 import { PageContainer } from "./PageContainer";
+import "./navbar-scroll.css";
 
 export function Navbar() {
   const pathname = usePathname();
