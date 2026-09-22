@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import localFont from "next/font/local";
-import { Anton, Bangers, IBM_Plex_Mono, Inter } from "next/font/google";
+import { Anton, IBM_Plex_Mono, Inter } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import "./globals.css";
@@ -12,7 +12,7 @@ const anton = Anton({
   subsets: ["latin"],
 });
 
-const comicPunch = Bangers({ variable: "--font-comic-punch", weight: "400", subsets: ["latin"], display: "swap" });
+const comicPunch = localFont({ src: "./fonts/Bangers-Regular.ttf", variable: "--font-comic-punch", weight: "400", display: "swap" });
 const storyScript = localFont({
   src: "./fonts/StoryScript-Regular.ttf",
   variable: "--font-hero-comic",
