@@ -2,9 +2,10 @@
 
 import { useState, type CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, ArrowRight, Braces, Sparkles, Workflow, Radio, Layers3 } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Braces, Sparkles, Workflow, Radio } from "lucide-react";
 import { PageContainer } from "@/components/layout/PageContainer";
 import "./capabilities.css";
+import "./build-pipeline.css";
 
 const capabilities = [
   {
@@ -13,6 +14,7 @@ const capabilities = [
       "Interfaces, APIs, data models, and deployment shaped into one dependable product.",
     icon: Braces, color: "#6d9bff", label: "PRODUCT ENGINE",
     nodes: ["Interface", "API layer", "Database", "Deployment"],
+    details: ["Make it intuitive.", "Connect the logic.", "Give data a home.", "Put it in people's hands."],
     center: "BUILD", caption: "Every layer. One product.",
   },
   {
@@ -21,6 +23,7 @@ const capabilities = [
       "Useful intelligence and workflow automation designed around a real operational need.",
     icon: Sparkles, color: "#ff5168", label: "AUTOMATION ENGINE",
     nodes: ["Input", "Intelligence", "Action", "Feedback"],
+    details: ["Start with a real signal.", "Find what matters.", "Make the next move.", "Learn from the result."],
     center: "THINK", caption: "Less repetition. More possibility.",
   },
   {
@@ -29,6 +32,7 @@ const capabilities = [
       "Practical software that brings structure, visibility, and control to everyday work.",
     icon: Workflow, color: "#ffd23f", label: "OPERATIONS ENGINE",
     nodes: ["People", "Processes", "Records", "Insights"],
+    details: ["Understand the work.", "Bring order to the everyday.", "Keep one source of truth.", "Make better decisions."],
     center: "SOLVE", caption: "Real workflows. Built to work.",
   },
   {
@@ -37,6 +41,7 @@ const capabilities = [
       "Sensors, devices, cloud services, and applications working as one connected system.",
     icon: Radio, color: "#00e5ff", label: "CONNECTED ENGINE",
     nodes: ["Sensors", "Devices", "Cloud", "Application"],
+    details: ["Read the physical world.", "Process at the edge.", "Connect the moving parts.", "Make it useful to someone."],
     center: "LINK", caption: "Physical world. Digital possibilities.",
   },
 ] as const;
@@ -71,22 +76,15 @@ export function Capabilities() {
               );
             })}
           </div>
-          <div id="build-schematic" className="build-schematic" style={{ "--channel": selected.color } as CSSProperties} role="region" aria-label={`${selected.title} system diagram`}>
-            <div className="build-schematic__top"><span><Layers3 size={16} aria-hidden="true" /> THE BUILD LAB</span><span>MODULE / 0{active + 1}</span></div>
-            <motion.div key={active} className="build-schematic__body" initial={reducedMotion ? false : { opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
-              <p className="build-schematic__label">{selected.label}</p>
-              <div className="build-schematic__diagram">
-                <svg className="build-schematic__wires" viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M100 65H220L300 180L380 65H500 M100 295H220L300 180L380 295H500" />
-                  <path className="build-schematic__pulse" d="M100 65H220L300 180L380 295H500 M500 65H380L300 180L220 295H100" />
-                </svg>
-                <div className="build-schematic__orbit" aria-hidden="true" /><div className="build-schematic__dial" aria-hidden="true" />
-                <div className="build-schematic__core"><Icon size={43} strokeWidth={1.4} aria-hidden="true" /><strong>{selected.center}</strong></div>
-                {selected.nodes.map((node, index) => <div className={`build-schematic__node build-schematic__node--${index + 1}`} key={node}><span>0{index + 1}</span><strong>{node}</strong></div>)}
-              </div>
-              <div className="build-schematic__caption"><span aria-hidden="true">{"//"}</span><p>{selected.caption}</p></div>
+          <div id="build-schematic" className="build-pipeline" style={{ "--channel": selected.color } as CSSProperties} role="region" aria-label={`${selected.title}: under the hood`}>
+            <div className="build-pipeline__kicker"><span>UNDER THE HOOD</span><span>0{active + 1} / 04</span></div>
+            <motion.div key={active} className="build-pipeline__content" initial={reducedMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+              <div className="build-pipeline__title"><h3>{selected.center}.<span>{["EVERY LAYER COUNTS.", "LESS BUSYWORK. MORE POSSIBILITY.", "ORDER FROM EVERYDAY CHAOS.", "BEYOND THE SCREEN."][active]}</span></h3><Icon size={38} strokeWidth={1.3} aria-hidden="true" /></div>
+              <ol className="build-pipeline__steps">
+                {selected.nodes.map((node, index) => <motion.li key={node} initial={reducedMotion ? false : { opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .45, delay: index * .1 }} style={{ "--step": index } as CSSProperties}><span className="build-pipeline__number">0{index + 1}</span><strong>{node}</strong><span className="build-pipeline__detail">{selected.details[index]}</span><ArrowUpRight size={16} aria-hidden="true" /></motion.li>)}
+              </ol>
+              <div className="build-pipeline__result"><span className="build-pipeline__sticker">IT ALL CONNECTS.</span><p>{selected.caption}</p><ArrowRight size={21} aria-hidden="true" /></div>
             </motion.div>
-            <div className="build-schematic__bottom"><span>ROUGH IDEA</span><span className="build-schematic__track" aria-hidden="true" /><ArrowRight size={17} aria-hidden="true" /><span>WORKING SYSTEM</span></div>
           </div>
         </motion.div>
       </PageContainer>

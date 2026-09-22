@@ -63,7 +63,6 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="navbar__connector" aria-hidden="true"><span>{"</>"}</span><i /><small>IDEA → IMPACT</small><i /></div>
         <nav className="nav-links" aria-label="Primary navigation">
           {navigation.map((item) => (
             <Link

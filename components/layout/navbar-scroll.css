@@ -1,12 +1,6 @@
 .navbar.navbar--scrolled { background:rgba(4,7,17,.96); border-bottom:1px solid #253247; backdrop-filter:blur(18px); }
 .navbar .navbar__inner { gap:clamp(1rem,2vw,2rem); }
-.navbar__connector { flex:1; display:flex; align-items:center; gap:10px; min-width:60px; color:#577085; }
-.navbar__connector span { color:var(--cyan); font:600 16px var(--font-mono); }
-.navbar__connector i { height:1px; flex:1; background:linear-gradient(90deg,#30485f,#152033); }
-.navbar__connector small { font:500 10px var(--font-mono); letter-spacing:.08em; white-space:nowrap; }
 .navbar .nav-links { gap:clamp(1rem,2vw,2.3rem); }
 .navbar .nav-links a::after { bottom:13px; left:-9%; width:118%; height:6px; border-radius:0; clip-path:polygon(0 75%,32% 28%,83% 4%,76% 27%,100% 34%,93% 64%,42% 69%,5% 100%); transform-origin:left center; }
 .navbar .nav-links a.is-active::after { transform:rotate(-3deg) scaleX(1); }
-@media(max-width:1300px){.navbar__connector small{display:none}}
-@media(max-width:1100px){.navbar__connector{display:none}}
 @media(prefers-reduced-motion:reduce){.navbar *{transition:none!important}}
