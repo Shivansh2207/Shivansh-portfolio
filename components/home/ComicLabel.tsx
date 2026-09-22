@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import "./comic-label.css";
 
 export function ComicLabel({
   children,

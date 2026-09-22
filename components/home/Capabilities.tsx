@@ -80,7 +80,7 @@ export function Capabilities() {
                   <path d="M100 65H220L300 180L380 65H500 M100 295H220L300 180L380 295H500" />
                   <path className="build-schematic__pulse" d="M100 65H220L300 180L380 295H500 M500 65H380L300 180L220 295H100" />
                 </svg>
-                <div className="build-schematic__orbit" aria-hidden="true" />
+                <div className="build-schematic__orbit" aria-hidden="true" /><div className="build-schematic__dial" aria-hidden="true" />
                 <div className="build-schematic__core"><Icon size={43} strokeWidth={1.4} aria-hidden="true" /><strong>{selected.center}</strong></div>
                 {selected.nodes.map((node, index) => <div className={`build-schematic__node build-schematic__node--${index + 1}`} key={node}><span>0{index + 1}</span><strong>{node}</strong></div>)}
               </div>

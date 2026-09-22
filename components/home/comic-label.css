@@ -1,0 +1,5 @@
+.hero .comic-label { font-family:var(--font-comic-punch),sans-serif; font-weight:400; font-style:normal; letter-spacing:.035em; -webkit-text-stroke:.25px currentColor; color:#090b10; border:3px solid #080b10; border-radius:0; background-color:#ffd23f; background-image:radial-gradient(#8a621c70 .7px,transparent .9px),linear-gradient(135deg,#ffe478,#ffd23f 60%,#efad26); background-size:5px 5px,100% 100%; box-shadow:inset 0 0 0 2px #ffeb90,4px 5px 0 #03050a,6px 7px 0 #ad86364d; text-shadow:none; transform:rotate(-3deg) skewX(-4deg); }
+.hero .comic-label::before { content:""; position:absolute; inset:-7px 3px 3px -7px; border:1px solid #bba76280; pointer-events:none; }
+.hero .comic-label::after { content:""; position:absolute; width:22px; height:3px; right:-13px; bottom:-5px; background:#ffda57; transform:rotate(-35deg); }
+.hero .comic-label:nth-child(2) { transform:rotate(1deg) skewX(-4deg); }
+.hero .comic-label:nth-child(3) { transform:rotate(-2deg) skewX(-4deg); }
