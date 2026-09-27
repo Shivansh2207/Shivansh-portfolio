@@ -91,9 +91,10 @@ future email service, API route, or form provider. No message is transmitted yet
 This repository is configured for OpenAI Sites/Vinext hosting and Cloudflare
 Worker-compatible output.
 
-For Vercel, import the repository, keep the Node.js version at 22 or newer, and
-switch the build script from `vinext build` to `next build` before deploying the
-standard Next.js App Router build.
+For Vercel, import the repository and keep the Node.js version at 22 or newer.
+The checked-in `vercel.json` selects `npm run build:vercel`, which creates the
+standard `.next` output while the default `npm run build` remains configured
+for Vinext and Cloudflare-compatible hosting.
 
 ## Replace before launch
 
