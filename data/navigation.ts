@@ -8,6 +8,6 @@ export const navigation = [
 ] as const;
 
 export const socialLinks = {
-  github: "https://github.com/your-username",
-  linkedin: "https://www.linkedin.com/in/your-username",
+  github: "https://github.com/Shivansh2207",
+  linkedin: "https://www.linkedin.com/in/shivansh-vyas-9b509a315/",
 } as const;
