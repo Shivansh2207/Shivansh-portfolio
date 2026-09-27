@@ -8,9 +8,9 @@ patterns, and a replaceable character asset—never the supplied reference image
 
 - Responsive home page with a high-impact animated hero
 - Sticky desktop navigation and accessible mobile menu
-- Selected projects, capabilities, experience, about, playground, and contact sections
+- Selected projects, capabilities, experience, about, and contact sections
 - Projects index and reusable project case-study routes
-- Stack, About, Playground, Contact, and custom 404 pages
+- Stack, About, Contact, and custom 404 pages
 - Typed project and stack data
 - Contact form UI with client-side validation
 - Reduced-motion support, visible focus states, and semantic page structure
